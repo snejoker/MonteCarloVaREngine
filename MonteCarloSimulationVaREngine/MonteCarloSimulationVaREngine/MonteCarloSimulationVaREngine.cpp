@@ -48,4 +48,6 @@ int main()
     vector<double> spotRates = TSHandler.GetMostRecentValues();
 
     //
+    //
+    //
 }
