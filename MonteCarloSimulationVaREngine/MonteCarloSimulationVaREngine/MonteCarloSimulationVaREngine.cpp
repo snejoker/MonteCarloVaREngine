@@ -46,4 +46,6 @@ int main()
 
     //Creating the positions we would like to calculate VaR for
     vector<double> spotRates = TSHandler.GetMostRecentValues();
+
+    //
 }
