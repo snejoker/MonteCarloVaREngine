@@ -139,19 +139,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bond.cpp" />
     <ClCompile Include="Cholesky.cpp" />
+    <ClCompile Include="FXForward.cpp" />
     <ClCompile Include="MonteCarloSimulationVaREngine.cpp" />
+    <ClCompile Include="OptionCall.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="TSHandler.cpp" />
+    <ClCompile Include="ValuationFunction.cpp" />
+    <ClCompile Include="ValuationFunctionCombiner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arrays.h" />
+    <ClInclude Include="Bond.h" />
     <ClInclude Include="Cholesky.h" />
+    <ClInclude Include="FXForward.h" />
+    <ClInclude Include="OptionCall.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="ReadCSV.h" />
     <ClInclude Include="ReturnType.h" />
     <ClInclude Include="RiskFactor.h" />
     <ClInclude Include="TSHandler.h" />
+    <ClInclude Include="ValuationFunction.h" />
+    <ClInclude Include="ValuationFunctionCombiner.h" />
     <ClInclude Include="Wrapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

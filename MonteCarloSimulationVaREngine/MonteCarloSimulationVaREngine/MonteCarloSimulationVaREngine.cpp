@@ -11,6 +11,13 @@
 #include "ReadCSV.h"
 #include "ReturnType.h"
 #include "TSHandler.h"
+//including Valuation Resources
+#include "ValuationFunction.h"
+#include "OptionCall.h"
+#include "Bond.h"
+#include "FXForward.h"
+#include "ValuationFunctionCombiner.h"
+
 
 int main()
 {
@@ -43,11 +50,25 @@ int main()
         std::cout << "\n";
     }
 
-    //sdff
+ 
+
     //Creating the positions we would like to calculate VaR for
     vector<double> spotRates = TSHandler.GetMostRecentValues();
+    //CallOptions
+    double zeroDrift = 0.0;  double nominal = 1000; double d = 0; double r = 0; double S0 = spotRates[0]; double Strike = spotRates[0]; double frontImpvol = 0.5; double TTM = 3.0 / 12.0;
+    std::shared_ptr<valuationFunction>CallOptionEquity = std::make_shared<BSCall>("3 month ATM European call", nominal, S0, r, d, frontImpvol, TTM, Strike);
 
-    //
-    //
-    //
+    double INDEX0 = spotRates[1]; double IndexStrike = spotRates[1]; double IndexfrontImpvol = 0.25; TTM = 12.0;
+    std::shared_ptr<valuationFunction> CallOptionIndex = std::make_shared<BSCall>("1 year ATM European call", nominal, INDEX0, r, d, IndexfrontImpvol, TTM, IndexStrike);
+    //Combining portfolio of options as the same simulated scenarios will be used for Valuations
+    std::shared_ptr<valuationFunction> CallOptions = std::make_shared<FunctionCombiner>(vector<std::shared_ptr<valuationFunction>>{ CallOptionIndex, CallOptionEquity});
+    
+    //Bond
+    nominal = 1000; double yield = spotRates[2] / 100.0;  double facevalue = 100; double couponFreq = 2; double couponRate = 0.01; TTM = 2;
+    std::shared_ptr<valuationFunction> USTreasuryBond = std::make_shared<BondFunction>("10 year UST bond", nominal, yield, facevalue, couponRate, couponFreq, TTM);
+    //FX Forward
+    nominal = 1000; double F0 = 1.15; double r_foreign = -0.003; double FXrate = (spotRates[3]); TTM = 1; double r_domestic = -0.02;
+    double FXDrift = r_domestic - r_foreign;
+    std::shared_ptr<valuationFunction> EURUSDForward = std::make_shared<FXForwardFunction>("EUR/USD FX forward", nominal, FXrate, r, r_foreign, TTM, F0);
+
 }

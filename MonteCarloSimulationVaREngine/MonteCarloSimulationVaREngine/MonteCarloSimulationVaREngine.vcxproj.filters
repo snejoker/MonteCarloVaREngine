@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Helpers">
       <UniqueIdentifier>{adf5abe4-ac19-4674-ae5e-3390bb6f39bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ValuationFunction">
+      <UniqueIdentifier>{b4fdc118-5073-4ae6-95f3-60134f7c0cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ValuationFunction">
+      <UniqueIdentifier>{6a6d8c13-ea40-47bc-8d09-816e43fa14cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonteCarloSimulationVaREngine.cpp">
@@ -32,6 +38,21 @@
     </ClCompile>
     <ClCompile Include="TSHandler.cpp">
       <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Bond.cpp">
+      <Filter>Source Files\ValuationFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="FXForward.cpp">
+      <Filter>Source Files\ValuationFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionCall.cpp">
+      <Filter>Source Files\ValuationFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="ValuationFunction.cpp">
+      <Filter>Source Files\ValuationFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="ValuationFunctionCombiner.cpp">
+      <Filter>Source Files\ValuationFunction</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +79,21 @@
     </ClInclude>
     <ClInclude Include="TSHandler.h">
       <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionCall.h">
+      <Filter>Header Files\ValuationFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="ValuationFunction.h">
+      <Filter>Header Files\ValuationFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="Bond.h">
+      <Filter>Header Files\ValuationFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="FXForward.h">
+      <Filter>Header Files\ValuationFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="ValuationFunctionCombiner.h">
+      <Filter>Header Files\ValuationFunction</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
