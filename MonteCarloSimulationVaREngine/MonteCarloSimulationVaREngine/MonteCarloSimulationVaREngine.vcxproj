@@ -139,26 +139,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackSholesStep.cpp" />
     <ClCompile Include="Bond.cpp" />
+    <ClCompile Include="BrownianMotionStep.cpp" />
     <ClCompile Include="Cholesky.cpp" />
+    <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="FXForward.cpp" />
+    <ClCompile Include="InstrumentStatisticsGatherer.cpp" />
+    <ClCompile Include="MCEngine.cpp" />
+    <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="MonteCarloSimulationVaREngine.cpp" />
     <ClCompile Include="OptionCall.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="SimulationEngine.cpp" />
+    <ClCompile Include="StatisticsAbsVaR.cpp" />
+    <ClCompile Include="StatisticsCompiler.cpp" />
+    <ClCompile Include="StatisticsMean.cpp" />
+    <ClCompile Include="StatisticsQuantilescpp.cpp" />
+    <ClCompile Include="StatisticsRelESpp.cpp" />
+    <ClCompile Include="StatisticsRelVaR.cpp" />
     <ClCompile Include="TSHandler.cpp" />
     <ClCompile Include="ValuationFunction.cpp" />
     <ClCompile Include="ValuationFunctionCombiner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arrays.h" />
+    <ClInclude Include="BlackSholesStep.h" />
     <ClInclude Include="Bond.h" />
+    <ClInclude Include="BrownianMotionStep.h" />
     <ClInclude Include="Cholesky.h" />
+    <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="FXForward.h" />
+    <ClInclude Include="InstrumentStatisticsGatherer.h" />
+    <ClInclude Include="MCEngine.h" />
+    <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="OptionCall.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="ReadCSV.h" />
     <ClInclude Include="ReturnType.h" />
     <ClInclude Include="RiskFactor.h" />
+    <ClInclude Include="SimulationEngine.h" />
+    <ClInclude Include="StatisticsAbsVaR.h" />
+    <ClInclude Include="StatisticsCompiler.h" />
+    <ClInclude Include="StatisticsMean.h" />
+    <ClInclude Include="StatisticsQuantiles.h" />
+    <ClInclude Include="StatisticsRelES.h" />
+    <ClInclude Include="StatisticsRelVaR.h" />
     <ClInclude Include="TSHandler.h" />
     <ClInclude Include="ValuationFunction.h" />
     <ClInclude Include="ValuationFunctionCombiner.h" />

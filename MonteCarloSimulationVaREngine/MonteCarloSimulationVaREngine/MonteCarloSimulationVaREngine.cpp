@@ -17,10 +17,25 @@
 #include "Bond.h"
 #include "FXForward.h"
 #include "ValuationFunctionCombiner.h"
+//including Simulations Resources
+#include "BlackSholesStep.h"
+#include "BrownianMotionStep.h"
+#include "MCEngine.h"
+//including Aggregation Resources
+#include "MCStatistics.h"
+#include "StatisticsMean.h"
+#include "StatisticsRelVaR.h"
+#include "StatisticsAbsVaR.h"
+#include "StatisticsRelES.h"
+#include "StatisticsQuantiles.h"
+#include "ConvergenceTable.h"
+#include "StatisticsCompiler.h"
+#include "InstrumentStatisticsGatherer.h"
 
 
 int main()
 {
+    //Tutorial 5
     unsigned long riskFactorDaysUsed = 250;
 
     //Read file to get the values of risk factors, make sure the file is located in same folder as the project
@@ -51,7 +66,7 @@ int main()
     }
 
  
-
+    //Tutorial 6
     //Creating the positions we would like to calculate VaR for
     vector<double> spotRates = TSHandler.GetMostRecentValues();
     //CallOptions
@@ -62,7 +77,6 @@ int main()
     std::shared_ptr<valuationFunction> CallOptionIndex = std::make_shared<BSCall>("1 year ATM European call", nominal, INDEX0, r, d, IndexfrontImpvol, TTM, IndexStrike);
     //Combining portfolio of options as the same simulated scenarios will be used for Valuations
     std::shared_ptr<valuationFunction> CallOptions = std::make_shared<FunctionCombiner>(vector<std::shared_ptr<valuationFunction>>{ CallOptionIndex, CallOptionEquity});
-    
     //Bond
     nominal = 1000; double yield = spotRates[2] / 100.0;  double facevalue = 100; double couponFreq = 2; double couponRate = 0.01; TTM = 2;
     std::shared_ptr<valuationFunction> USTreasuryBond = std::make_shared<BondFunction>("10 year UST bond", nominal, yield, facevalue, couponRate, couponFreq, TTM);
@@ -70,5 +84,33 @@ int main()
     nominal = 1000; double F0 = 1.15; double r_foreign = -0.003; double FXrate = (spotRates[3]); TTM = 1; double r_domestic = -0.02;
     double FXDrift = r_domestic - r_foreign;
     std::shared_ptr<valuationFunction> EURUSDForward = std::make_shared<FXForwardFunction>("EUR/USD FX forward", nominal, FXrate, r, r_foreign, TTM, F0);
+
+
+    //Tutorial 7
+    //Creating Simulation Engines
+    BSstepEngine StockSimulation(zeroDrift, CallOptions, RiskFactor::equity);
+    OneStepBrownianMotionEngine ShortRateSimulation(zeroDrift, USTreasuryBond, RiskFactor::interest_rate);
+    BSstepEngine FXSimulation(FXDrift, EURUSDForward, RiskFactor::FX_rate);
+
+    vector<Wrapper<SimulationEngine>>EngineVector;
+    EngineVector.push_back(StockSimulation);
+    EngineVector.push_back(ShortRateSimulation);
+    EngineVector.push_back(FXSimulation);
+
+    //Setting up the engine and calculating the present value of the portfolio and positions
+    MCEngine VAREngine(EngineVector, myCovMatrix);
+    VAREngine.ValuePortfolio();
+
+    double V0 = VAREngine.GetPortfolioValue();
+    std::cout << "Portolio market value: " << V0 << "\n \n";
+    MJArray instrumentValues = VAREngine.GetInstrumentValues();
+    std::vector<std::string> instrumentIdentifiers = VAREngine.GetInstrumentIdentifiers();
+    std::vector<int> instrumentNominals = VAREngine.GetInstrumentNominals();
+    for (unsigned long i = 0; i < instrumentValues.size(); i++)
+    {
+        std::cout << instrumentIdentifiers[i] << ": \n" << "nominal: " << instrumentNominals[i] << "\n" << "Market value: " << instrumentValues[i] << "\n \n";
+    }
+    std::cout << "\n";
+
 
 }

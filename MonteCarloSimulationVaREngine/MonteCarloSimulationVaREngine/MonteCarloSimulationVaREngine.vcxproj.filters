@@ -25,6 +25,18 @@
     <Filter Include="Source Files\ValuationFunction">
       <UniqueIdentifier>{6a6d8c13-ea40-47bc-8d09-816e43fa14cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Simulations">
+      <UniqueIdentifier>{f02e0f27-ea36-431e-8d09-ad082f7f3371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Simulations">
+      <UniqueIdentifier>{89f89834-70a4-466c-a552-92baa26e91d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Aggregation">
+      <UniqueIdentifier>{4efc0f25-ee84-4c7f-b4d6-37ab87bdcce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Aggregation">
+      <UniqueIdentifier>{6d28ea80-7d46-4141-9e40-5054c43b3a6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonteCarloSimulationVaREngine.cpp">
@@ -53,6 +65,45 @@
     </ClCompile>
     <ClCompile Include="ValuationFunctionCombiner.cpp">
       <Filter>Source Files\ValuationFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="BrownianMotionStep.cpp">
+      <Filter>Source Files\Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="MCEngine.cpp">
+      <Filter>Source Files\Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationEngine.cpp">
+      <Filter>Source Files\Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackSholesStep.cpp">
+      <Filter>Source Files\Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsCompiler.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsMean.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsQuantilescpp.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsRelESpp.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsRelVaR.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvergenceTable.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="InstrumentStatisticsGatherer.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="MCStatistics.cpp">
+      <Filter>Source Files\Aggregation</Filter>
+    </ClCompile>
+    <ClCompile Include="StatisticsAbsVaR.cpp">
+      <Filter>Source Files\Aggregation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +145,45 @@
     </ClInclude>
     <ClInclude Include="ValuationFunctionCombiner.h">
       <Filter>Header Files\ValuationFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="MCEngine.h">
+      <Filter>Header Files\Simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationEngine.h">
+      <Filter>Header Files\Simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackSholesStep.h">
+      <Filter>Header Files\Simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="BrownianMotionStep.h">
+      <Filter>Header Files\Simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="MCStatistics.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsAbsVaR.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsCompiler.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsMean.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsQuantiles.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsRelES.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="StatisticsRelVaR.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvergenceTable.h">
+      <Filter>Header Files\Aggregation</Filter>
+    </ClInclude>
+    <ClInclude Include="InstrumentStatisticsGatherer.h">
+      <Filter>Header Files\Aggregation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
