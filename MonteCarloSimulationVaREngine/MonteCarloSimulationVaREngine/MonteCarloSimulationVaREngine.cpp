@@ -7,7 +7,7 @@
 #include <memory>
 #include <algorithm>
 #include <iomanip>
-//including helper resources sdlfksldkfsdf
+//including helper resources
 #include "ReadCSV.h"
 #include "ReturnType.h"
 #include "TSHandler.h"
