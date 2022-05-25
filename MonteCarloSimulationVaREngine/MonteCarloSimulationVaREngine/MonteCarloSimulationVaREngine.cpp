@@ -78,7 +78,7 @@ int main()
     //Combining portfolio of options as the same simulated scenarios will be used for Valuations
     std::shared_ptr<valuationFunction> CallOptions = std::make_shared<FunctionCombiner>(vector<std::shared_ptr<valuationFunction>>{ CallOptionIndex, CallOptionEquity});
     //Bond
-    nominal = 1000; double yield = spotRates[2] / 100.0;  double facevalue = 100; double couponFreq = 2; double couponRate = 0.01; TTM = 2;
+    nominal = 1000; double yield = spotRates[2] / 100.0;  double facevalue = 100; double couponFreq = 2; double couponRate = 0.02; TTM = 2;
     std::shared_ptr<valuationFunction> USTreasuryBond = std::make_shared<BondFunction>("10 year UST bond", nominal, yield, facevalue, couponRate, couponFreq, TTM);
     //FX Forward
     nominal = 1000; double F0 = 1.15; double r_foreign = -0.003; double FXrate = (spotRates[3]); TTM = 1; double r_domestic = -0.02;
