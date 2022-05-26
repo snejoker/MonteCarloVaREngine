@@ -70,7 +70,7 @@ int main()
     //Creating the positions we would like to calculate VaR for
     vector<double> spotRates = TSHandler.GetMostRecentValues();
     //CallOptions
-    double zeroDrift = 0.0;  double nominal = 1000; double d = 0; double r = 0; double S0 = spotRates[0]; double Strike = spotRates[0]; double frontImpvol = 0.5; double TTM = 3.0 / 12.0;
+    double zeroDrift = 0.0;  double nominal = 1000; double d = 0; double r = 0; double S0 = spotRates[0]; double Strike = spotRates[0]; double frontImpvol = 0.25; double TTM = 3.0 / 12.0;
     std::shared_ptr<valuationFunction>CallOptionEquity = std::make_shared<BSCall>("3 month ATM European call", nominal, S0, r, d, frontImpvol, TTM, Strike);
 
     double INDEX0 = spotRates[1]; double IndexStrike = spotRates[1]; double IndexfrontImpvol = 0.25; TTM = 12.0;
