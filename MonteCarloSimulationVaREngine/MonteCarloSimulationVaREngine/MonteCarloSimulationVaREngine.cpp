@@ -35,16 +35,16 @@
 
 int main()
 {
-    //Tutorial 5 
+    //Tutorial 5 - simulations
     unsigned long riskFactorDaysUsed = 250;
-    //sdfsdf
+    
     //Read file to get the values of risk factors, make sure the file is located in same folder as the project
     vector<vector<double>> RiskFactorTS = parse2DCsvFile("RiskFactorsHistory.csv");
 
     //Specifiy if the relative returns or absolute returns of the input risk factors
     vector<AbsOrRel> ReturnTypes{ AbsOrRel::rel, AbsOrRel::rel,AbsOrRel::abs, AbsOrRel::rel };
 
-    //TSHandler - time-series handler generate returns, covariance matrix and spor Rates
+    //TSHandler - time-series handler generate returns, covariance matrix and spor Rates 
     TSHandler TSHandler(RiskFactorTS, ReturnTypes, riskFactorDaysUsed);
     TSHandler.createCovarianceMatrix(0);
     vector<vector<double>> myCovMatrix = TSHandler.GetCovarianceMatrix();
