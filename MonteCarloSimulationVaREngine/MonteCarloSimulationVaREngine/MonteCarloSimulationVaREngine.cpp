@@ -35,7 +35,7 @@
 
 int main()
 {
-    //Tutorial 5 - simulations
+    //Tutorial 5 simulations
     unsigned long riskFactorDaysUsed = 250;
     
     //Read file to get the values of risk factors, make sure the file is located in same folder as the project
