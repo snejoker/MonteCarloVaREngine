@@ -10,7 +10,7 @@
 MCEngine::MCEngine(std::vector<Wrapper<SimulationEngine>> EngineVector_, std::vector<std::vector<double>> covMatrix_)
 	: V(0), EngineVector(EngineVector_), covMatrix(covMatrix_), cholMatrix(Cholesky_Decomposition(covMatrix_))
 {
-	//Includes all the unique functions in the portfolio to be valued.
+	//Includes all the unique functions in the portfolio to be valued. #
 	for (unsigned long i = 0; i < EngineVector.size(); ++i)
 	{
 		std::vector<std::string> thisUniqueIdentifierVector;
